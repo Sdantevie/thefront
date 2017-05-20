@@ -1,14 +1,19 @@
-.aboutcontainer {
+.contactcontainer {
     box-sizing:border-box;
-    height: 700px;
+    height: 550px;
+    text-align: center;
      background-color: #FFFFFF
     }
     
-.about {
-   text-align: center;
+.contact {
    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
    font-size: 30px; 
    margin: 0px;
    box-sizing: border-box;
-   padding: 270px 15px 40px 15px;
+   padding: 130px 15px 40px 15px;
 }
+
+.contactpoint {
+    padding-left: .7em;
+    padding-right: .7em;
+} 

@@ -10,6 +10,7 @@ class Head extends React.Component{
             showMenuIconButton={false}
             style={{
                 backgroundColor: '#ffffff',
+                position: 'fixed'
             }}
             titleStyle={{
                 color: '#000000',

@@ -1,8 +1,6 @@
 .home {
-   box-sizing: border-box;
-   height: 600px;
-   padding: 5px 5px 5px 5px;
-    background-color: #EEEEEE
+   background: transparent;
+   text-align:center;
     }
 .title {
     text-align: center;
@@ -10,7 +8,7 @@
     font-weight: lighter;
     font-family:  'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 0px;
-    padding: 165px 30px 10px 30px;
+    padding: 280px 30px 10px 30px;
 }
 
 .desc {
@@ -19,5 +17,5 @@
     font-weight: lighter;
     font-size: 200%;
     font-style: italic;
-    padding: 10px 30px 30px 30px;
+    padding: 10px 30px 270px 30px;
 }
