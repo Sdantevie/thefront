@@ -1,7 +1,7 @@
 .aboutcontainer {
     box-sizing:border-box;
     height: 700px;
-     background-color: #FFFFFF
+    background-color: #FFFFFF
     }
     
 .about {
@@ -11,4 +11,9 @@
    margin: 0px;
    box-sizing: border-box;
    padding: 270px 15px 40px 15px;
+}
+
+.smileimage {
+   height: 40px;
+   width: 40px;
 }

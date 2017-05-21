@@ -8,7 +8,7 @@
     font-weight: lighter;
     font-family:  'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 0px;
-    padding: 280px 30px 10px 30px;
+    padding: 280px 30px 1px 30px;
 }
 
 .desc {
@@ -17,5 +17,5 @@
     font-weight: lighter;
     font-size: 200%;
     font-style: italic;
-    padding: 10px 30px 270px 30px;
+    padding: 1px 30px 270px 30px;
 }
