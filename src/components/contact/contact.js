@@ -4,7 +4,7 @@ import './contact.css';
 export default class Contact extends React.Component{
     render(){
         return(
-            <div className="contactcontainer">
+            <div className="contactcontainer" id="contact">
                 <p className="contact">
                     Wanna Reach Me? Go Here <br/>
                 </p>
