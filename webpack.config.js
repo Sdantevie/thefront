@@ -1,11 +1,17 @@
 var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.js',
+    devtool: 'cheap-module-source-map',
+    entry: [
+        // require.resolve('webpack-dev-server/client') + '?/',
+        // require.resolve('webpack/hot/dev-server'),
+        './src/index.js'
+        ],
     output: {
-        path: path.resolve(__dirname, 'public'),
         filename: 'bundle.js',
-        publicPath: '/public/'
+        path: path.resolve(__dirname, 'build'),
+        publicPath: '/'
     },
     devServer: {
         contentBase: path.resolve(__dirname, 'public')
@@ -22,8 +28,18 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: 'css-loader'
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
             }
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: __dirname + '/public/index.html',
+            // filename: 'build/index.html',
+            inject: true
+        })
+  ],
 };
