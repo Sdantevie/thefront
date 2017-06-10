@@ -6,7 +6,7 @@ export default class About extends React.Component {
         return(
             <div className="aboutcontainer" id="about">
                 <p className="about">
-                 I'm a Software Developer Based in Port-Harcourt, Nigeria. <br/> 
+                 I'm a Software Developer Based in Port-Harcourt City, Nigeria. <br/> 
                  Some projects i've Worked on Include, this Site <img className="smileimage" src="./images/images.png" alt="Smiley"/> and Others. <br/><br/>
                  I Currently Work in my Room!!
                 </p>    

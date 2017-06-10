@@ -4,17 +4,17 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     devtool: 'cheap-module-source-map',
     entry: [
-        // require.resolve('webpack-dev-server/client') + '?/',
-        // require.resolve('webpack/hot/dev-server'),
+        // 'webpack-dev-server/client?http://localhost:8080',
+        // 'webpack/hot/dev-server',
         './src/index.js'
         ],
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'build'),
+        path: path.resolve(__dirname, 'public'),
         publicPath: '/'
     },
     devServer: {
-        contentBase: path.resolve(__dirname, 'public')
+        contentBase: path.resolve(__dirname, 'public'),
     },
     module:{
         loaders:[
@@ -38,7 +38,6 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: __dirname + '/public/index.html',
-            // filename: 'build/index.html',
             inject: true
         })
   ],
