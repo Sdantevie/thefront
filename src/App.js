@@ -2,11 +2,9 @@ import React from 'react';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import Header  from './components/header/header';
-import About from './components/about/about';
+import Header  from './components/LandingPage/header/header';
 import Home from './components/home/home';
-import Contact from './components/contact/contact';
-import Footer from './components/footer/footer';
+import Container from './components/LandingPage/Container/container';
 import './App.css'
 
 class App extends React.Component {
@@ -21,9 +19,7 @@ class App extends React.Component {
               <Home/>
             </div>
             <div className="laPimp">
-              <About/>
-              <Contact/>
-              <Footer/>
+            <Container/>
             </div>
           </div>
       </MuiThemeProvider>
