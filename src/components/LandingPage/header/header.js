@@ -1,20 +1,22 @@
 import React from 'react';
+import {BrowserRouter, Link, withRouter} from 'react-router-dom';
 import './header.css';
 import AppBar from 'material-ui/AppBar';
 
 class Head extends React.Component{
     render(){
-        const navlinks = (
+         const navlink = (
             <div className="linkContainer">
-                <a className="linking" href="">Home</a>
-                <a className="linking" href="#about">About</a>
-                <a className="linking" href="">Blog</a>
-                <a className="linking" href="#contact">Contact</a>
+                <BrowserRouter>
+                    <div>
+                        <Link to='/' className="linking">Home</Link>
+                        <Link to='/about' className="linking">About</Link>
+                        <Link to='/blog' className="linking">Blog</Link>
+                        <Link to='/contact' className="linking">Contact</Link>
+                    </div>
+                </BrowserRouter>
             </div>    
         );
-        const navLinksStyle={
-                
-            }
         return(
             <AppBar
             title="S. Daniel"
@@ -26,11 +28,10 @@ class Head extends React.Component{
             titleStyle={{
                 color: '#000000',
             }}
-            iconElementRight={navlinks}
-            iconStyleRight={navLinksStyle}
+            iconElementRight={navlink}
             />
         );
     }
 } 
 
-export default Head
+export default withRouter(Head)
