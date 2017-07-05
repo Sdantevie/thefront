@@ -18,11 +18,11 @@ class Head extends React.Component{
             title="S. Daniel"
             showMenuIconButton={false}
             style={{
-                backgroundColor: '#ffffff',
+                backgroundColor: 'transparent',
                 position: 'fixed'
             }}
             titleStyle={{
-                color: '#000000',
+                color: '#000000'
             }}
             iconElementRight={navlink}
             />

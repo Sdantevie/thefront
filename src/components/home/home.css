@@ -3,19 +3,20 @@
    text-align:center;
     }
 .title {
-    text-align: center;
-    font-size: 600%;
+    text-align: left;
+    font-size: 550%;
     font-weight: lighter;
-    font-family:  'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Lucida Sans';
     margin: 0px;
-    padding: 280px 30px 1px 30px;
+    padding: 250px 10px 0px 40px;
 }
 
 .desc {
-    text-align: center;
+    text-align: left;
     margin: 0px;
     font-weight: lighter;
+    font-family: 'Lucida Sans';
     font-size: 200%;
     font-style: italic;
-    padding: 1px 30px 270px 30px;
+    padding: 1px 30px 10px 40px;
 }
