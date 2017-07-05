@@ -8,9 +8,8 @@ class Head extends React.Component{
          const navlink = (
             <div className="linkContainer">
                         <Link to='/' className="linking">Home</Link>
-                        <Link to='/about' className="linking">About</Link>
+                        <Link to='/work' className="linking">Work</Link>
                         <Link to='/blog' className="linking">Blog</Link>
-                        <Link to='/contact' className="linking">Contact</Link>
             </div>    
         );
         return(

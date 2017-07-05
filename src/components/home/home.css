@@ -1,6 +1,7 @@
 .home {
-   background: transparent;
-   text-align:center;
+    background: transparent;
+    box-sizing:border-box;
+    height: 100%;
     }
 .title {
     text-align: left;
@@ -8,7 +9,7 @@
     font-weight: lighter;
     font-family: 'Lucida Sans';
     margin: 0px;
-    padding: 250px 10px 0px 40px;
+    padding: 280px 10px 0px 40px;
 }
 
 .desc {
@@ -19,4 +20,19 @@
     font-size: 200%;
     font-style: italic;
     padding: 1px 30px 10px 40px;
+}
+
+.about {
+   text-align: left;
+   font-family: 'Lucida Sans';
+   font-size: 140%; 
+   margin: 0px;
+   box-sizing: border-box;
+   padding: 10px 15px 40px 40px;
+}
+
+.leImage {
+    height: 40px;
+    width: 40px;
+    padding: 7px;
 }
