@@ -5,6 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Header  from './components/header/header';
 import Home from './components/home/home';
+import BlogLanding from './components/blog/bloglanding';
 import './App.css'
 
 class App extends React.Component {
@@ -16,6 +17,7 @@ class App extends React.Component {
               <Header/>
               <Switch>
                 <Route exact = {true} path="/" component={Home}/>
+                <Route path="/blog" component={BlogLanding}/>
               </Switch>
           </div>
         </MuiThemeProvider>
