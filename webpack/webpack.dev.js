@@ -1,6 +1,6 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-
+console.log(path.resolve(path.normalize(__dirname + '/..'), 'public/index.html'));
 module.exports = {
     devtool: 'cheap-module-source-map',
     entry: [
@@ -10,11 +10,11 @@ module.exports = {
         ],
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'public'),
+        path: path.resolve(path.normalize(__dirname + '/..'), 'public'),
         publicPath: '/'
     },
     devServer: {
-        contentBase: path.resolve(__dirname, 'public'),
+        contentBase: path.resolve(path.normalize(__dirname + '/..'), 'public'),
     },
     module:{
         loaders:[
@@ -37,7 +37,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: __dirname + '/public/index.html',
+            template: path.resolve(path.normalize(__dirname + '/..'), 'public/index.html'),
             inject: true
         })
   ],
