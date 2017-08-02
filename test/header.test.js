@@ -4,7 +4,7 @@ import { shallow, mount, render } from 'enzyme';
 import Head from '../src/components/header/header';
 import App from '../src/App';
 describe('Component: Head', () => {
-    it('renders without exploding', () => {
+    it('renders without falling', () => {
         expect(
             shallow(
                 <Head/>

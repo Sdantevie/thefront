@@ -4,10 +4,12 @@ import './home.css'
 export default class Home extends React.Component{
     render(){
         return (
-           <div className="home">
-                <h1 className="title">Steven Daniel</h1>
-                <h3 className="desc">musician.   programmer.    savage. </h3>
-                 <p className="about">
+
+           <div className="container">
+               <div className="lePad jumbotron">
+                <h1 className="leTitle" >Steven Daniel</h1>
+                <h3 className="leSubtitle"><i>musician.   programmer.    savage.</i> </h3>
+                 <p >
                  Hi, I'm a Software Developer Based in Port-Harcourt, Nigeria. <br/> 
                  I Currently Work at DropSoft. Wanna Reach Me?!! Go Here<br/>
                  <a href="https://twitter.com/_deemogul">
@@ -19,7 +21,8 @@ export default class Home extends React.Component{
                 <a href="https://instagram.com/_deemogul">
                     <img className="leImage" src="./images/icon_linkedin_128.png" alt="Instagram"/>
                 </a>
-                </p>   
+                </p>
+                </div>   
             </div>  
         );
     }

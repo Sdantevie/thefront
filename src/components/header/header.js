@@ -1,32 +1,32 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './header.css';
-import AppBar from 'material-ui/AppBar';
 
-class Head extends React.Component{
-    render(){
-         const navlink = (
-            <div className="linkContainer">
-                        <Link to='/' className="linking">Home</Link>
-                        <Link to='/work' className="linking">Work</Link>
-                        <Link to='/blog' className="linking">Blog</Link>
-            </div>    
-        );
+class Head extends React.Component {
+    render() {
         return(
-            <AppBar
-            title="S. Daniel"
-            showMenuIconButton={false}
-            style={{
-                backgroundColor: 'transparent',
-                position: 'fixed'
-            }}
-            titleStyle={{
-                color: '#000000'
-            }}
-            iconElementRight={navlink}
-            />
+         <nav className="navbar navbar-default navbar-fixed-top">
+        <div className="container">
+            <div className="navbar-header">
+                <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                        <span className="sr-only">Toggle navigation</span>
+                        <span className="icon-bar"></span>
+                        <span className="icon-bar"></span>
+                        <span className="icon-bar"></span>
+                    </button>
+                <a className="navbar-brand" href="#">S. Daniel</a>
+            </div>
+            <div className="collapse navbar-collapse head">
+                <ul className="nav navbar-nav navbar-right">
+                    <li><Link to='/'>Home</Link></li>
+                    <li><Link to='/work' >Work</Link></li>
+                    <li><Link to='/blog' >Blog</Link></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
         );
     }
-} 
+}
 
 export default Head

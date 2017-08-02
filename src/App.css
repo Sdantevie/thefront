@@ -1,14 +1,8 @@
 .App-Content {
-     background-color: #EEEEEE;
+     background: transparent;
      height: 100%;
      width: 100%;
      z-index: 1;
      position: fixed;
      
-}
-.laPimp {
-    position:absolute;
-    top: 100%;
-    width:100%;
-    z-index: 2;
 }
