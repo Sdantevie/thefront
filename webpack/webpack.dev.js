@@ -1,4 +1,5 @@
 var path = require('path');
+var webpackBundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     devtool: 'cheap-module-source-map',
@@ -38,6 +39,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(path.normalize(__dirname + '/..'), 'public/index.html'),
             inject: true
-        })
+        }),
+        new webpackBundleAnalyzer()
   ],
 };

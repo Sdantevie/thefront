@@ -19,6 +19,7 @@
     "react-scripts": "0.9.5",
     "style-loader": "^0.18.2",
     "webpack": "^2.7.0",
+    "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.4.5",
     "webpack-merge": "^4.1.0"
   },
