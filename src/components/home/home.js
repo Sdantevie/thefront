@@ -8,7 +8,7 @@ export default class Home extends React.Component{
            <div className="container">
                <div className="lePad jumbotron">
                 <h1 className="leTitle" >Steven Daniel</h1>
-                <h3 className="leSubtitle"><i>musician.   programmer.    savage.</i> </h3>
+                <h3 className="leSubtitle"><i>musician.   programmer.  humane.</i> </h3>
                  <p >
                  Hi, I'm a Software Developer Based in Port-Harcourt, Nigeria. <br/> 
                  I Currently Work at DropSoft. Wanna Reach Me?!! Go Here<br/>

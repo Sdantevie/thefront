@@ -3,6 +3,12 @@ var webpackBundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlu
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     devtool: 'cheap-module-source-map',
+    resolve: {
+        alias: {
+            'react': 'preact-compat',
+            'react-dom': 'preact-compat',
+        }
+    },
     entry: [
         // 'webpack-dev-server/client?http://localhost:8080',
         // 'webpack/hot/dev-server',
@@ -14,7 +20,10 @@ module.exports = {
         publicPath: '/'
     },
     devServer: {
+        host: '0.0.0.0',
         contentBase: path.resolve(path.normalize(__dirname + '/..'), 'public'),
+        port: 9000,
+        disableHostCheck: true
     },
     module:{
         loaders:[

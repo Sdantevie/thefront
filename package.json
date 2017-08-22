@@ -24,6 +24,7 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
+    "preact-compat": "^3.17.0",
     "react": "^15.5.4",
     "react-bootstrap": "^0.31.0",
     "react-dom": "^15.5.4",
