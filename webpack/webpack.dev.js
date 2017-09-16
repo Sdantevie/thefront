@@ -7,12 +7,11 @@ module.exports = {
         alias: {
             'react': 'preact-compat',
             'react-dom': 'preact-compat',
-        }
+        },
+        extensions: ['.js', '.jsx']
     },
     entry: [
-        // 'webpack-dev-server/client?http://localhost:8080',
-        // 'webpack/hot/dev-server',
-        './src/index.js'
+        './src/index.jsx'
         ],
     output: {
         filename: 'bundle.js',
@@ -28,7 +27,7 @@ module.exports = {
     module:{
         loaders:[
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
