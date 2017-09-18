@@ -1,13 +1,13 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import Home from '../src/components/home/Home';
+import Head from '../src/components/header/Header';
 
-describe('Component: Home', () => {
-    it('renders without exploding', () => {
+describe('Component: Head', () => {
+    it('renders without falling', () => {
         expect(
             shallow(
-                <Home/>
+                <Head/>
             ).length
         ).to.equal(1);
     });
