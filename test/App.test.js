@@ -9,7 +9,7 @@ import BlogLanding from '../src/components/blog/BlogLanding';
 import App from '../src/App';
 
 describe('Component: App', () => {
-    it('renders well', () => {
+    it('renders without explosion', () => {
         expect(shallow(<App />).length).to.equal(1);
     });
 

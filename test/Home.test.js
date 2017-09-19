@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import Home from '../src/components/home/Home';
 
 describe('Component: Home', () => {
-    it('renders without exploding', () => {
+    it('renders without explosion', () => {
         expect(
             shallow(
                 <Home/>

@@ -4,10 +4,10 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     devtool: 'cheap-module-source-map',
     resolve: {
-        alias: {
-            'react': 'preact-compat',
-            'react-dom': 'preact-compat',
-        },
+        // alias: {
+        //     'react': 'preact-compat',
+        //     'react-dom': 'preact-compat',
+        // },
         extensions: ['.js', '.jsx']
     },
     entry: [

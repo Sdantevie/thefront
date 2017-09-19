@@ -14,7 +14,7 @@ export default class BlogLanding extends React.Component{
         axios.get('http://localhost:3000/articles/59be4089910fd73cd2ca45c5')
         .then((res) => {
             console.log(res);
-            const post = res;
+            const post = res.data;
             this.setState({post});
         }).catch((err) => {
             console.log(err);
