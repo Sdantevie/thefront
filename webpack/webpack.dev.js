@@ -1,13 +1,16 @@
-var path = require('path');
-var webpackBundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const webpackBundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+
 module.exports = {
     devtool: 'cheap-module-source-map',
     resolve: {
-        // alias: {
-        //     'react': 'preact-compat',
-        //     'react-dom': 'preact-compat',
-        // },
+        alias: {
+            'react': 'preact-compat',
+            'react-dom': 'preact-compat',
+        },
         extensions: ['.js', '.jsx']
     },
     entry: [
@@ -35,15 +38,22 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ]
+                test: /\.s?css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'sass-loader']
+                })
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                loader: 'file-loader?name=public/fonts/[name].[ext]'
             }
         ]
     },
     plugins: [
+        new ExtractTextPlugin('style.css', {
+            allChunks: true
+        }),
         new HtmlWebpackPlugin({
             template: path.resolve(path.normalize(__dirname + '/..'), 'public/index.html'),
             inject: true

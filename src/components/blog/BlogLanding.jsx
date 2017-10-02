@@ -11,7 +11,7 @@ export default class BlogLanding extends React.Component{
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3000/articles/59be4089910fd73cd2ca45c5')
+        axios.get('http://blogapi.dev/articles/59be4089910fd73cd2ca45c5')
         .then((res) => {
             console.log(res);
             const post = res.data;

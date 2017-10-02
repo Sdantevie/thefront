@@ -1,0 +1,12 @@
+$icon-font-path : "../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
+@import '../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap-custom';
+
+body {
+  margin: 0;
+  background-color: rgb(238, 238, 238);
+  // padding-top: 51px;
+  font-family: 'IM Fell Great Primer', serif;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}

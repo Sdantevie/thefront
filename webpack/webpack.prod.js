@@ -3,6 +3,12 @@ var webpack = require('webpack');
 var Settings = require('./webpack.dev.js');
 
 module.exports = Merge(Settings, {
+    resolve: {
+        alias: {
+            'react': 'preact-compat',
+            'react-dom': 'preact-compat',
+        }
+    },
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {
