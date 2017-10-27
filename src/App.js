@@ -17,6 +17,7 @@ class App extends Component {
         this.getToken = this.getToken.bind(this);
         this.getId = this.getId.bind(this);
         this.getName = this.getName.bind(this);
+        this.clearId = this.clearId.bind(this);
     }
    
     getToken(token){
@@ -24,11 +25,17 @@ class App extends Component {
     };
 
     getId(id){
+        console.log('i got the id');
         this.setState({id : id});
     }
 
     getName (name)  {
         this.setState({name : name});
+    }
+
+    clearId(){
+        console.log('i cleared the id');
+        this.setState({ id: ''});
     }
 
    
@@ -37,7 +44,7 @@ class App extends Component {
         <div className="container">
             <Switch>
                 <Route exact = {true} path="/" render={() => <Home getToken={this.getToken}/>}/>
-                <Route path="/create" render={() => <CreateResource token={this.state.token}  id={this.state.id} />} />
+                <Route path="/create" render={() => <CreateResource token={this.state.token} clearId={this.clearId}  id={this.state.id} />} />
                 <Route path="/views" render={() => <ViewResource token={this.state.token} getId={this.getId} getName={this.getName} name={this.state.name}/>}/>
               </Switch>
               <Footer/>

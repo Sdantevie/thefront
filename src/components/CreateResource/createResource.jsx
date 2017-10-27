@@ -9,13 +9,11 @@ class CreateResource extends React.Component {
     constructor(props){
         super(props);
         this.state ={
-            data : {
-                studentsName : '',
-                school : '',
-                course : '',
-                subject : '',
-                link : '',
-            },
+            studentsName : '',
+            school : '',
+            course : '',
+            subject : '',
+            link : '',
             percent : -1
         };
         this.handleInputChange =this.handleInputChange.bind(this);
@@ -23,17 +21,19 @@ class CreateResource extends React.Component {
     }
 
     componentDidMount() {
-        if(typeof this.props.id !== 'undefined'){
+        if(this.props.id !== ''){
             this.setState({
                 percent : 0
             });
             axios({method : 'get',
-                // url : 'http://localhost:3001/students',
+                // url : `http://localhost:3001/students/${this.props.id}`,
                     url : `http://192.168.43.196:3001/students/${this.props.id}`,
+                    // url :`https://salty-shore-26799.herokuapp.com/students/${this.props.id}`,
                     headers : {
                     'x-access-token' : this.props.token 
                     }
                 }).then(response => {
+                    console.log(response.data);
                     this.setState({
                     data : response.data,
                         percent : 100
@@ -47,6 +47,13 @@ class CreateResource extends React.Component {
         }
     }
    
+    componentWillUnmount(){
+        console.log('here');
+        if(this.props.id !== ''){
+            console.log('inside');
+            this.props.clearId()  //this will refresh the page
+        }
+    }
 
     handleInputChange(event){
         const target = event.target;
@@ -59,11 +66,11 @@ class CreateResource extends React.Component {
       }
     handleSubmit(){
         let data =  {
-            name : this.state.data.studentsName,
-            course : this.state.data.course,
-            school : this.state.data.school,
-            subject : this.state.data.subject,
-            link : this.state.data.link,
+            name : this.state.studentsName,
+            course : this.state.course,
+            school : this.state.school,
+            subject : this.state.subject,
+            link : this.state.link,
             token : this.props.data.token
         };
         console.log(JSON.stringify(data));
@@ -75,6 +82,7 @@ class CreateResource extends React.Component {
            axios.post(
                'http://192.168.43.196:3001/students',
             //    'http://localhost:3001/students',
+            // 'https://salty-shore-26799.herokuapp.com/students',
             data 
            )
             .then( response => { 
@@ -97,6 +105,8 @@ class CreateResource extends React.Component {
     }
 
     render(){
+        console.log(this.state.percent);
+        console.log(this.props.id);
         return (
             <div className="container">
                 <ProgressBar 
@@ -118,7 +128,7 @@ class CreateResource extends React.Component {
                          placeholder="Name..."
                          name="studentsName"
                          onChange={this.handleInputChange}
-                         value={this.state.data.studentsName}/>
+                         value={this.state.studentsName}/>
                     </div>
                     <div className="col-lg-6">
                         <span>Your School</span>
@@ -127,7 +137,7 @@ class CreateResource extends React.Component {
                         placeholder="Institution..."
                         name="school"
                         onChange={this.handleInputChange}
-                        value={this.state.data.school}
+                        value={this.state.school}
                         />
                     </div>
                     <div className="col-lg-12"><br/></div>
@@ -138,7 +148,7 @@ class CreateResource extends React.Component {
                         placeholder="Course of Study..."
                         name="course"
                         onChange={this.handleInputChange}
-                        value={this.state.data.course}/>
+                        value={this.state.course}/>
                     </div>
                 </div>
           </div>
@@ -154,14 +164,14 @@ class CreateResource extends React.Component {
                             placeholder="Subject.."
                             name="subject"
                             onChange={this.handleInputChange}
-                            value={this.state.data.subject}/>
+                            value={this.state.subject}/>
                             <span>Link</span>
                             <input type="text" 
                             className="form-control" 
                             placeholder="Link to Resource..."
                             name="link"
                             onChange={this.handleInputChange}
-                            value={this.state.data.link}/>
+                            value={this.state.link}/>
                     </div>
                 </div>
           </div>

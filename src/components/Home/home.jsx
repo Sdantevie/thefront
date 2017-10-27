@@ -14,23 +14,25 @@ class Home extends Component {
         };
     }     
    
+    //Ajax Call to get Authentication from the API
     componentDidMount(){
         this.setState({percent: 0});
         axios.post(
-            // 'http://192.168.43.196:3001/api/authenticate',
+            'http://192.168.43.196:3001/api/authenticate',
             // 'http://localhost:3001/api/authenticate',
-            'https://salty-shore-26799.herokuapp.com/api/authenticate',
+            // 'https://salty-shore-26799.herokuapp.com/api/authenticate',
              {
             name: 'theKingsBusiness'
         })
         .then((response) => {
-            console.log(response.data);
             this.setState({percent: 100, loggedIn: true});
             this.props.getToken(response.data.token);
         })
         .catch(error => console.log(error));
     }
+
     render(){
+        console.log('hi');
         return (
             <div className="home">
                     <ProgressBar 
@@ -39,6 +41,7 @@ class Home extends Component {
                     intervalTime={(Math.random()*1000)}
                     spinner= {'right'}/>
                 <h1>Student Resource Center</h1>
+                {/* if there's a response from the API the basic buttons for using the app is shown.*/}
                 {this.state.loggedIn ?
                 (<div>
                 <div className="row">
