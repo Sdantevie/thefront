@@ -1,0 +1,8 @@
+.features i {
+   float : right
+}
+
+.glyphicon-trash, .glyphicon-edit {
+    font-size: 20px;
+    padding-left: 7px
+}

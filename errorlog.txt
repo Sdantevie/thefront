@@ -1,8 +1,0 @@
-Introducing Routing
----------------------
-1) Failed prop type: The prop `history` is marked as required in `Router`, but its value is `undefined`.
-    in Router (created by App)
-    in App.
-
-    Solution: Installed react-router-dom and Imported BrowserRouter from react-router-dom to replace 
-    Router. This is due to the major upgrade to v4.1.1.                        in App.js

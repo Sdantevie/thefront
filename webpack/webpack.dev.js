@@ -14,8 +14,8 @@ module.exports = {
         extensions: ['.js', '.jsx']
     },
     entry: [
-        './src/index.jsx'
-        ],
+        './src/index.js'
+    ],
     output: {
         filename: 'bundle.js',
         path: path.resolve(path.normalize(__dirname + '/..'), 'public'),
@@ -27,27 +27,22 @@ module.exports = {
         port: 9000,
         disableHostCheck: true
     },
-    module:{
-        loaders:[
-            {
+    module: {
+        loaders: [{
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
-                    presets: ['es2015', 'react']
+                    presets: ['env', 'react']
                 }
             },
             {
-                test: /\.s?css$/,
+                test: /\.css$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader']
+                    use: ['css-loader']
                 })
             },
-            {
-                test: /\.(eot|svg|ttf|woff|woff2)$/,
-                loader: 'file-loader?name=public/fonts/[name].[ext]'
-            }
         ]
     },
     plugins: [
@@ -59,5 +54,5 @@ module.exports = {
             inject: true
         }),
         new webpackBundleAnalyzer()
-  ],
+    ],
 };
