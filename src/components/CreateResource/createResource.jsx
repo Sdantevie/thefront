@@ -21,6 +21,11 @@ class CreateResource extends React.Component {
     }
 
     componentDidMount() {
+        /**
+         *if id has a vaue(not an empty string) 
+          it means this component
+          is serving the other function of editing a resource
+         */
         if(this.props.id !== ''){
             this.setState({
                 percent : 0
@@ -35,8 +40,12 @@ class CreateResource extends React.Component {
                 }).then(response => {
                     console.log(response.data);
                     this.setState({
-                    data : response.data,
-                        percent : 100
+                    studentsName : response.data.name,
+                    school : response.data.school,
+                    course : response.data.course,
+                    subject : response.data.subject,
+                    link : response.data.link, 
+                    percent : 100
                     });
                 }).catch((err) => {
                     console.log(err);
@@ -48,10 +57,11 @@ class CreateResource extends React.Component {
     }
    
     componentWillUnmount(){
-        console.log('here');
+        /**
+         * id must be cleared
+         */
         if(this.props.id !== ''){
-            console.log('inside');
-            this.props.clearId()  //this will refresh the page
+            this.props.clearId()  
         }
     }
 
@@ -60,7 +70,8 @@ class CreateResource extends React.Component {
         const value =  target.value;
         const name = target.name;
         this.setState({
-          [name]: value
+          [name]: value,
+          percent : -1
         });
        
       }
@@ -71,7 +82,7 @@ class CreateResource extends React.Component {
             school : this.state.school,
             subject : this.state.subject,
             link : this.state.link,
-            token : this.props.data.token
+            token : this.props.token
         };
         console.log(JSON.stringify(data));
         const r = window.confirm("Are you Sure");
@@ -79,34 +90,33 @@ class CreateResource extends React.Component {
            this.setState({
                percent : 0
            });
-           axios.post(
-               'http://192.168.43.196:3001/students',
-            //    'http://localhost:3001/students',
-            // 'https://salty-shore-26799.herokuapp.com/students',
-            data 
-           )
-            .then( response => { 
-                console.log(response.data);
-                this.setState({
-                    percent : 100
-                });
-                this.createNotification('success');
-                // this.props.history.push('/');
+            axios({
+                method : 'post',
+                url : `http://192.168.43.196:3001/students/${this.props.id !== '' ? this.props.id : ''}`,
+                // url :   'http://localhost:3001/students',
+                // url :  'https://salty-shore-26799.herokuapp.com/students',
+                data : data,
+                headers : {
+                    'x-access-token' : this.props.token 
+                    }
             })
-            .catch(err => { 
-                console.log(err);
-                this.setState({
-                    percent : 100
-                });
-                this.createNotification('error');
-                // this.props.history.push('/');
-            })
+                .then( response => { 
+                    console.log(response.data);
+                    this.setState({
+                        percent : 100
+                    });
+                    this.props.history.push('/');
+                })
+                .catch(err => { 
+                    console.log(err);
+                    this.setState({
+                        percent : 100
+                    });
+                    this.props.history.push('/');
+                })
        }
-    }
-
+    } 
     render(){
-        console.log(this.state.percent);
-        console.log(this.props.id);
         return (
             <div className="container">
                 <ProgressBar 
@@ -115,7 +125,7 @@ class CreateResource extends React.Component {
                 intervalTime={(Math.random() * 1000)}
                 spinner= {'right'}/>
                 <Nav switch={true}/>
-                <h2>Add/Edit Student Resource</h2>
+                <h2>{this.props.id !== '' ? 'Edit' : 'Add'} Student Resource</h2>
             <div className="panel panel-primary">
                 <div className="panel-heading">
                     <h3 className="panel-title">Student's Details</h3>

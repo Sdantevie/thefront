@@ -33,7 +33,6 @@
     "react-tap-event-plugin": "^2.0.1"
   },
   "scripts": {
-    "test": "mocha --watch --compilers js:babel-core/register --require ignore-styles ./test/setup.js  ./test/**/*.test.js",
     "build:dev": "webpack-dev-server --env=dev --progress --inline --hot",
     "build:prod": "webpack --env=prod  --progress  --hot"
   }
