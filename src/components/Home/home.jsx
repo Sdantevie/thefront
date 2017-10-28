@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ProgressBar from 'react-progress-bar-plus'
 import 'react-progress-bar-plus/lib/progress-bar.css';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 import './home.css';
 
 class Home extends Component {
@@ -26,9 +28,13 @@ class Home extends Component {
         })
         .then((response) => {
             this.setState({percent: 100, loggedIn: true});
+            NotificationManager.success('Welcome to the Student Resource Center by S. Daniel', 'Success');
             this.props.getToken(response.data.token);
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+            this.setState({percent: 100, loggedIn: false});
+            NotificationManager.error('We\'re Setting things Up to give a Wonderful Experience, Please Facilitate the process by Reloading this page, thanks a Lot', 'Error');
+        });
     }
 
     render(){
@@ -61,6 +67,7 @@ class Home extends Component {
                         <div className="col-lg-3"></div>
                 </div></div>)
                 : (<div></div>) }
+                <NotificationContainer />
             </div>
         );
        

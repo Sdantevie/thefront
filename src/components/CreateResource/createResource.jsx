@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 import ProgressBar from 'react-progress-bar-plus';
 import 'react-progress-bar-plus/lib/progress-bar.css';
 import Nav from '../Nav/nav';
@@ -58,7 +60,7 @@ class CreateResource extends React.Component {
    
     componentWillUnmount(){
         /**
-         * id must be cleared
+         * id field must be cleared
          */
         if(this.props.id !== ''){
             this.props.clearId()  
@@ -105,6 +107,7 @@ class CreateResource extends React.Component {
                     this.setState({
                         percent : 100
                     });
+                    NotificationManager.success(`'The Student/Resource has been ${ this.props.id !== '' ? 'Edited' : 'Added'} Successfully`, 'Success');
                     this.props.history.push('/');
                 })
                 .catch(err => { 
@@ -112,7 +115,7 @@ class CreateResource extends React.Component {
                     this.setState({
                         percent : 100
                     });
-                    this.props.history.push('/');
+                    NotificationManager.error('For some weird reason, that didn\'t work, please try again', 'Error');
                 })
        }
     } 
@@ -188,6 +191,7 @@ class CreateResource extends React.Component {
           <button type="button"
                   className="btn btn-success"
                   onClick={this.handleSubmit}>Submit</button>
+            <NotificationContainer />
           </div>
         );
     }

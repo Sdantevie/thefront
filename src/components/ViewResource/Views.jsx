@@ -78,10 +78,18 @@ class View extends Component {
     }
 
     render(){
+        console.log(this.props.name);
         let view = (typeof this.state.studentResource !== 'undefined' && this.state.studentResource.length > 0) ? this.state.studentResource.map((item) => {
             return (
                 item.name !== '' ? <StudentView key={item._id} token={this.props.token} data={item} getName={this.props.getName} getId={this.props.getId} /> 
                  : <ResourceView key={item._id} onDeleteClick={this.deleteClick} data={item} getId={this.props.getId} /> 
+            );
+        }) : ( <div className="jumbotron">There was an Error Retrieving Resources, please Visit the Home Page</div>);
+
+        //View for Resources added by a student 
+        let view2 = (typeof this.state.studentResource !== 'undefined' && this.state.studentResource.length > 0) ? this.state.studentResource.map((item) => {
+            return (
+                <ResourceView key={item._id} onDeleteClick={this.deleteClick} data={item} getId={this.props.getId} /> 
             );
         }) : ( <div className="jumbotron">There was an Error Retrieving Resources, please Visit the Home Page</div>);
         
@@ -94,7 +102,7 @@ class View extends Component {
                 spinner= {'right'}/>
                 <Nav  switch = {false}/>
                 <br />
-                {view}
+                {this.props.name !== '' ? view2 : view }
                 {this.props.name !== '' ? (<button type="button"
                   className="btn btn-success"
                   onClick={this.onClick}>Go Back</button>) : (<div></div>)}

@@ -1,6 +1,8 @@
 import React,  { Component } from 'react';
 import axios from 'axios';
-import { Link, withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 import '../views.css';
 
 class StudentView extends Component {
@@ -39,9 +41,10 @@ class StudentView extends Component {
                 'x-access-token' : this.props.token 
                 }
             }).then(response => {
+              NotificationManager.success('The Resource has been deleted Successfully', 'Success');
               this.props.history.push('/views');
             }).catch((err) => {
-                console.log(err);
+                NotificationManager.error('For some weird reason, that didn\'t work, please try again', 'Error');
             });
        }
     }
@@ -60,6 +63,7 @@ class StudentView extends Component {
                         <i className="glyphicon glyphicon-edit" onClick={this.editClick}></i>
                     </div>
                 </div>
+                <NotificationContainer />
             </div>
         );
     }
