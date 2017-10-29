@@ -18,7 +18,7 @@ Output is in the `public` folder<br>
 
 ### App
 
-This is the Parent Component for the whole App. it uses the Switch and Route Packages from React-Router v4 to enable routing to its Child Components which Include
+This is the Parent Component for the whole App. it uses the Switch and Route Packages from React-Router v4 to enable routing to its Child Components which Include...
 
 ### Home
 
@@ -30,5 +30,15 @@ This Component serves two Purposes, in this Component the Creating and editing o
 
 ### ViewResource 
 
-This Components enables the Viewing of Students/Resources with the help of its Child Components, StudentView and ResourceView.
-In this Component, Deleting of Students is enabled.    
+This Components enables the Viewing, Deleting and Link for Editing of Students/Resources with the help of its Child Components which Include...
+
+### StudentView 
+
+This Component shows the Student Info, it provides deleting capabilities and Link to Editing the student.
+
+### Resource View 
+
+This Component shows the Resource info, it provides link to editing the resource. No deleting of resource as it was not explicitly specified in the assesment.
+
+
+Surge is used to output of the production Build in the public folder to http://myalcsrc.surge.sh

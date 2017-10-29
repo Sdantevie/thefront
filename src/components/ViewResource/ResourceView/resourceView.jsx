@@ -8,7 +8,6 @@ class ResourceView extends Component {
     constructor(props){
         super(props);
         this.editResource = this.editResource.bind(this);
-        this.deleteResource = this.deleteResource.bind(this);
     }
 
     editResource(){
@@ -18,23 +17,6 @@ class ResourceView extends Component {
             this.props.history.push('/create');
         }
     }
-    deleteResource ()  {
-        let r = window.confirm('Are you Sure');
-        if(r) {
-            axios({
-                method : 'delete',
-                url : `http://salty-shore-26799.herokuapp.com/students/${this.props.data._id}`,
-                headers : {
-                 'x-access-token' : this.props.token 
-                 }
-             }).then(response => {
-               NotificationManager.success('The Resource has been deleted Successfully', 'Success');
-               this.props.history.push('/views');
-             }).catch((err) => {
-                 NotificationManager.error('For some weird reason, that didn\'t work, please try again', 'Error');
-             });
-        }
-     }
     render(){
         return (
             <div className="panel panel-success">
@@ -45,7 +27,6 @@ class ResourceView extends Component {
                     </div>
                     <div className="features">
                         <span>This resource was added by {this.props.data.name || 'Anonymous'}</span>
-                        <i className="glyphicon glyphicon-trash" onClick={this.deleteResource}></i>
                         <i className="glyphicon glyphicon-edit" onClick={this.editResource}></i>
                     </div>
                 </div>
