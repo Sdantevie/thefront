@@ -21,23 +21,52 @@ class App extends Component {
         this.clearName =this.clearName.bind(this);
     }
    
+    /**
+     * @param {string} token
+     * This function is passed as a Prop to the Home Component 
+     * in order retrieve the Token acquired by the Home Component for use 
+     * in other Components
+     */
     getToken(token){
         this.setState({token : token});
     };
 
+    /** 
+     * @param {string} id
+     * This function is passed as Props to the ViewResource Component 
+     * in order retrieve the id of the particular Student/Resource selected by the user
+     * to be used by the CreateResource Component for the editing of Student/Resource  
+     */
     getId(id){
-        console.log('i got the id');
         this.setState({id : id});
     }
 
+    /**
+     * @param {string} name
+     *  This function is passed as Props to the ViewResource Component 
+     * in order retrieve the name of the particular Student/Resource selected by the user
+     * to be used by the ViewResource Component for the Viewing of Resources added by
+     * the selected  Student
+     */
     getName (name)  {
         this.setState({name : name});
     }
-
+    /**
+     * This function is passed as Props to the CreateResource Component 
+     * in order clear the id that was given to it so that on remounting, 
+     * the Component will be available for Adding of Resource
+     *  as well as editing of Resource 
+     */
     clearId(){
         this.setState({ id: ''});
     }
 
+    /**
+     * 
+     * This function is passed as Props to the ViewResource Component 
+     * in order to clear the name given to it so that it on updating it 
+     * looks new to serve other Purposes
+     */
     clearName(){
         this.setState({name : ''});
     }

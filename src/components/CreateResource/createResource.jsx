@@ -34,8 +34,8 @@ class CreateResource extends React.Component {
             });
             axios({method : 'get',
                 // url : `http://localhost:3001/students/${this.props.id}`,
-                    url : `http://192.168.43.196:3001/students/${this.props.id}`,
-                    // url :`https://salty-shore-26799.herokuapp.com/students/${this.props.id}`,
+                    // url : `http://192.168.43.196:3001/students/${this.props.id}`,
+                    url :`https://salty-shore-26799.herokuapp.com/students/${this.props.id}`,
                     headers : {
                     'x-access-token' : this.props.token 
                     }
@@ -63,10 +63,11 @@ class CreateResource extends React.Component {
          * id field must be cleared
          */
         if(this.props.id !== ''){
-            this.props.clearId()  
+            this.props.clearId()  //calling the clearId function defined in the Parent Component (App) and passed down as props
         }
     }
 
+    //Controlling the input elements so the Component's State is the Only source of truth for the Elements
     handleInputChange(event){
         const target = event.target;
         const value =  target.value;
@@ -94,9 +95,9 @@ class CreateResource extends React.Component {
            });
             axios({
                 method : 'post',
-                url : `http://192.168.43.196:3001/students/${this.props.id !== '' ? this.props.id : ''}`,
+                // url : `http://192.168.43.196:3001/students/${this.props.id !== '' ? this.props.id : ''}`,
                 // url :   'http://localhost:3001/students',
-                // url :  'https://salty-shore-26799.herokuapp.com/students',
+                url :  `https://salty-shore-26799.herokuapp.com/students/${this.props.id !== '' ? this.props.id : ''}`,
                 data : data,
                 headers : {
                     'x-access-token' : this.props.token 
@@ -190,6 +191,7 @@ class CreateResource extends React.Component {
           </div>
           <button type="button"
                   className="btn btn-success"
+                  disabled = { !this.state.link || !this.state.subject || !this.state.studentsName }
                   onClick={this.handleSubmit}>Submit</button>
             <NotificationContainer />
           </div>

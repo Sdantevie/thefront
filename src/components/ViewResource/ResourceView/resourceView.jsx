@@ -23,7 +23,7 @@ class ResourceView extends Component {
         if(r) {
             axios({
                 method : 'delete',
-                url : `http://192.168.43.196:3001/students/${this.props.data._id}`,
+                url : `http://salty-shore-26799.herokuapp.com/students/${this.props.data._id}`,
                 headers : {
                  'x-access-token' : this.props.token 
                  }
@@ -41,7 +41,7 @@ class ResourceView extends Component {
                 <div className="panel-body">
                     <div className="content">
                         Subject :{this.props.data.subject} <br/>
-                        Link: {this.props.data.link}
+                        Link: <a href={this.props.data.link}>{this.props.data.link}</a>
                     </div>
                     <div className="features">
                         <span>This resource was added by {this.props.data.name || 'Anonymous'}</span>

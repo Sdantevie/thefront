@@ -20,9 +20,9 @@ class Home extends Component {
     componentDidMount(){
         this.setState({percent: 0});
         axios.post(
-            'http://192.168.43.196:3001/api/authenticate',
+            // 'http://192.168.43.196:3001/api/authenticate',
             // 'http://localhost:3001/api/authenticate',
-            // 'https://salty-shore-26799.herokuapp.com/api/authenticate',
+            'https://salty-shore-26799.herokuapp.com/api/authenticate',
              {
             name: 'theKingsBusiness'
         })
@@ -33,12 +33,11 @@ class Home extends Component {
         })
         .catch(error => {
             this.setState({percent: 100, loggedIn: false});
-            NotificationManager.error('We\'re Setting things Up to give a Wonderful Experience, Please Facilitate the process by Reloading this page, thanks a Lot', 'Error');
+            NotificationManager.error('We\'re setting things up to give  you a wonderful experience. Please facilitate the process by reloading the App, thanks a Lot', 'Error');
         });
     }
 
     render(){
-        console.log('hi');
         return (
             <div className="home">
                     <ProgressBar 

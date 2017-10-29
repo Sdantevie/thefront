@@ -36,7 +36,7 @@ class StudentView extends Component {
                     subject: this.props.data.subject,
                     link: this.props.data.link,
                },
-               url : `http://192.168.43.196:3001/students/${this.props.data._id}`,
+               url : `http://salty-shore-26799.herokuapp.com/students/${this.props.data._id}`,
                headers : {
                 'x-access-token' : this.props.token 
                 }

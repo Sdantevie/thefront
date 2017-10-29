@@ -1,9 +1,8 @@
-# sdaniel
+# Student Resource Center by Steven Daniel
 
 
-This Project was Initially Bootstrapped [Creact React App](https://github.com/facebookincubator/create-react-app).
-The Intent was to poke Around so I ran npm run eject.<br>
-At the Moment its now a Preact App with the help of the [Preact Compat Tool](https://github.com/developit/preact-compat).
+This Project for my Assesment was Initially Bootstrapped with [Creact React App](https://github.com/facebookincubator/create-react-app), on a Different Repo, Due to problems with the Production Build emmited from CRA, i decided to use this Webpack set-Up from another project of mine. 
+Preact in this App is just to reduce the Size of the Bundle
 
 ## Available Scripts
 ### npm run build:dev
@@ -13,5 +12,23 @@ Also Opens on Mobile via Development Machines inetaddr on port 9000.<br>
 ### npm run build:prod
 Builds the App and makes it Ready for Deployment.<br>
 Output is in the `public` folder<br>
-### npm run test
-Uses Mocha and Chai for testing
+
+
+## Components
+
+### App
+
+This is the Parent Component for the whole App. it uses the Switch and Route Packages from React-Router v4 to enable routing to its Child Components which Include
+
+### Home
+
+The Landing Component. In this component, authentication is done in the background and access to other Parts of the App is revealed if authentication is successful.
+
+### CreateResource
+
+This Component serves two Purposes, in this Component the Creating and editing of students/Resources is solved.
+
+### ViewResource 
+
+This Components enables the Viewing of Students/Resources with the help of its Child Components, StudentView and ResourceView.
+In this Component, Deleting of Students is enabled.    
